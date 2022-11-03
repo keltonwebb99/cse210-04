@@ -67,6 +67,24 @@ class KeyboardService:
             dx = 5
         '''
 
+        '''
+        # move up
+        if pyray.is_key_down(pyray.KEY_KP_8):
+            dy = -5
+
+        # move down
+        if pyray.is_key_down(pyray.KEY_KP_2):
+            dy = 5
+
+        # move up
+        if pyray.is_key_down(pyray.KEY_UP):
+            dy = -5
+
+        # move down
+        if pyray.is_key_down(pyray.KEY_DOWN):
+            dy = 5
+        '''
+
         direction = Point(dx, dy)
         # Multiply by cell size
         direction = direction.scale(self._cell_size)
