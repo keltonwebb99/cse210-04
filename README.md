@@ -8,7 +8,7 @@ Josiah Madondo: * email: jmadondo1722@gmail.com*
 
  
 
-Teigen Barber: * email: *
+Teigen Barber: * email: barber.teigen@gmail.com *
 
  
 
