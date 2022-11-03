@@ -38,13 +38,30 @@ class KeyboardService:
             dx = 1
 
         '''
+        https://electronstudio.github.io/raylib-python-cffi/pyray.html#pyray.GamepadButton.GAMEPAD_BUTTON_MIDDLE_RIGHT 
         # If player is using the number pad to play
         # move to left
-        if pyray.is_key_down(pyray.NUM_KEY_4):
+        if pyray.is_key_down(pyray.GAMEPAD_BUTTON_LEFT_FACE_LEFT):
             dx = -1
         
         # move to right
-        if pyray.is_key_down(pyray.NUM_KEY_6):
+        if pyray.is_key_down(pyray.GAMEPAD_BUTTON_RIGHT_FACE_RIGHT):
+            dx = 1
+
+        # move to left
+        if pyray.is_key_down(pyray.KEY_KP_4):
+            dx = -1
+        
+        # move to right
+        if pyray.is_key_down(pyray.KEY_KP_6):
+            dx = 1
+
+        # move to left
+        if pyray.is_key_down(pyray.MOUSE_BUTTON_LEFT):
+            dx = -1
+        
+        # move to right
+        if pyray.is_key_down(pyray.MOUSE_BUTTON_RIGHT):
             dx = 1
         '''
 
