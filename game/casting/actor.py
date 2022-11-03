@@ -24,7 +24,7 @@ class Actor:
         #Constructs a new Actor
         self._color = Color(255, 255, 255)
         self._position = Point(0, 0)
-        self._velocity = Point(0, 0)
+        self._velocity = Point(0, 10)
 
     def get_color(self):
         #gets the color in the form of 3 integers

@@ -38,7 +38,7 @@ def main():
     
     # create the cursor
     x = int(MAX_X / 2)
-    y = int(MAX_Y / 1)
+    y = int(MAX_Y / 2)
     position = Point(x, y)
 
     cursor = Actor()
@@ -47,7 +47,7 @@ def main():
     cast.add_actor("cursor", cursor)
     
     # create the actors
-    for n in range(default_actors):
+    for i in range(default_actors):
 
         x = random.randint(1, COLS - 1)
         y = random.randint(1, ROWS - 1)
@@ -58,6 +58,18 @@ def main():
         g = random.randint(0, 255)
         b = random.randint(0, 255)
         color = Color(r, g, b)
+
+    #this needs to be somewhere where it is getting run as the program updates constantly
+    if default_actors < 40:
+        x = random.randint(1, COLS - 1)
+        y = (59)
+        position = Point(x, y)
+        position = position.scale(CELL_SIZE)
+
+        r = random.randint(0, 255)
+        g = random.randint(0, 255)
+        b = random.randint(0, 255)
+        color = Color(r, g, b)   
         
 #I don't think we need this part because we don't have an artifact class
 #but just in case we may need it, I don't want to delete it yet
