@@ -37,6 +37,17 @@ class KeyboardService:
         if pyray.is_key_down(pyray.KEY_RIGHT):
             dx = 1
 
+        '''
+        # If player is using the number pad to play
+        # move to left
+        if pyray.is_key_down(pyray.NUM_KEY_4):
+            dx = -1
+        
+        # move to right
+        if pyray.is_key_down(pyray.NUM_KEY_6):
+            dx = 1
+        '''
+
         direction = Point(dx, dy)
         # Multiply by cell size
         direction = direction.scale(self._cell_size)
