@@ -11,14 +11,13 @@ from game.shared.color import Color
                 -move_next:
                 -set_color:
                 -set_position:
-                -set_velocity:
-                  
+                -set_velocity:        
     
        --gem: child of actor (Teigen)
-          Gems and rocks are removed when the player touches them. 
+         will call on Actor's methods through inheritance  
       
        --rock: child of actor (Teigen)
-          Gems and rocks are removed when the player touches them."""
+         will call on Actor's methods through inheritance"""
 
 class Actor:
     def __init__(self):
@@ -46,7 +45,7 @@ class Actor:
         #returns speed and direction
         return self._velocity
     
-    def move_next(self):
+    def move_next(self, max_x, max_y):
         #moves the actor to the next position
         x = (self._position.get_x() + self._velocity.get_x()) % max_x
         y = (self._position.get_y() + self._velocity.get_y()) % max_y
@@ -73,7 +72,7 @@ class Gem(Actor):
         super().set_velocity
 
 class Rock(Actor):
-    
+
     def __init__(self):
         super().__init__()
         super().get_color
