@@ -31,9 +31,9 @@ class Actor:
         #returns the color
         return self._color
     
-    def set_color(self):
+    def set_color(self, color):
         #updates the color
-        self._color = Color
+        self._color = color
     
     def get_position(self):
         #gets the starting position in x/y format
