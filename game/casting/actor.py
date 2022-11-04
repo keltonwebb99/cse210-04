@@ -25,6 +25,8 @@ class Actor:
         self._color = Color(255, 255, 255)
         self._position = Point(0, 0)
         self._velocity = Point(0, 10)
+        self._text = ""
+        self._font_size = 15
 
     def get_color(self):
         #gets the color in the form of 3 integers
@@ -43,6 +45,10 @@ class Actor:
     def get_velocity(self):
         #gets the speed and direction
         #returns speed and direction
+
+        # to drop gems
+        self._velocity = Point(0, 10)
+
         return self._velocity
     
     def move_next(self, max_x, max_y):
@@ -58,6 +64,39 @@ class Actor:
     def set_velocity(self, velocity):
         #updates velocity
         self._velocity = velocity
+
+    # For player icon. Need font size and text returns
+    def get_font_size(self):
+        """Gets the actor's font size.
+        
+        Returns:
+            Point: The actor's font size.
+        """
+        return self._font_size
+
+    def get_text(self):
+        """Gets the actor's textual representation.
+        
+        Returns:
+            string: The actor's textual representation.
+        """
+        return self._text
+
+    def set_font_size(self, font_size):
+        """Updates the font size to the given one.
+        
+        Args:
+            font_size (int): The given font size.
+        """
+        self._font_size = font_size
+    
+    def set_text(self, text):
+        """Updates the text to the given value.
+        
+        Args:
+            text (string): The given value.
+        """
+        self._text = text
 
 class Gem(Actor):
     

@@ -30,8 +30,11 @@ def main():
     # create the cast
     cast = Cast()
     
-    # create the banner
+    # create the banner for Score
+    # This is where Score should be set to banner with text of score
     banner = Actor()
+    banner.set_text("")
+    banner.set_font_size(FONT_SIZE)
     banner.set_color(WHITE)
     banner.set_position(Point(CELL_SIZE, 0))
     cast.add_actor("banners", banner)
@@ -42,6 +45,9 @@ def main():
     position = Point(x, y)
 
     cursor = Actor()
+    # Need to have an icon for player/cursor
+    cursor.set_text("#")
+    cursor.set_font_size(FONT_SIZE)
     cursor.set_color(WHITE)
     cursor.set_position(position)
     cast.add_actor("cursor", cursor)

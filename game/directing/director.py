@@ -17,27 +17,35 @@ class Director:
 
     def _get_inputs(self, cast):
         #gets keyboard input and applies it to player icon
-        player = cast.get_first_actor()
+        player = cast.get_first_actor("cursor")
         velocity = self._keyboard_service.get_direction()
         player.set_velocity(velocity)
 
 
     def _do_updates(self, cast):
         #update player position and update points when colliding with rocks or gems
-        player = cast.get_first_actor("players")
-        gem = cast.get_actors("gems")
-        rock = cast.get_actors("rocks")
+        player = cast.get_first_actor("cursor")
+        gem = cast.get_actor("gems")
+        rock = cast.get_actor("rocks")
 
         max_x = self._video_service.get_width()
-        player.move_next(max_x)
+        max_y = self._video_service.get_height()
 
-        if player.get_position().equals(gem.get_position()):
-            #add code that adds a point
-            pass
-        elif player.get_position().equals(rock.get_position()):
-            #add code that subtracts a point
-            pass
+        # Update position of robot; in actor
+        player.move_next(max_x, max_y)
+
+        for gem in gem:
+            if player.get_position().equals(gem.get_position()):
+                #add code that adds a point
+                score += 1
+            #elif player.get_position().equals(rock.get_position()):
+                #add code that subtracts a point
+                #score -= 1
             
+        for rock in rock:
+            if player.get_position().equals(rock.get_position()):
+                #add code that subtracts a point
+                score -= 1
 
 
     def _do_outputs(self, cast):

@@ -31,15 +31,22 @@ class KeyboardService:
 
         # move to left
         if pyray.is_key_down(pyray.KEY_LEFT):
-            dx = -1
+            dx = -5
         
         # move to right
         if pyray.is_key_down(pyray.KEY_RIGHT):
-            dx = 1
+            dx = 5
 
-        '''
-        pyray library: 
-        https://electronstudio.github.io/raylib-python-cffi/pyray.html#pyray.GamepadButton.GAMEPAD_BUTTON_MIDDLE_RIGHT 
+        # move to up
+        if pyray.is_key_down(pyray.KEY_UP):
+            dx = -5
+        
+        # move to down
+        if pyray.is_key_down(pyray.KEY_DOWN):
+            dx = 5
+
+        # pyray library: 
+        # https://electronstudio.github.io/raylib-python-cffi/pyray.html#pyray.GamepadButton.GAMEPAD_BUTTON_MIDDLE_RIGHT 
         # If player is using the number pad to play
         # setting x and y to 1/-1 will move very slowly
         # move to left
@@ -65,9 +72,7 @@ class KeyboardService:
         # move to right
         if pyray.is_key_down(pyray.MOUSE_BUTTON_RIGHT):
             dx = 5
-        '''
 
-        '''
         # move up
         if pyray.is_key_down(pyray.KEY_KP_8):
             dy = -5
@@ -83,7 +88,7 @@ class KeyboardService:
         # move down
         if pyray.is_key_down(pyray.KEY_DOWN):
             dy = 5
-        '''
+        
 
         direction = Point(dx, dy)
         # Multiply by cell size

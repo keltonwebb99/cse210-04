@@ -40,7 +40,7 @@ class Cast:
         """
         results = []
         if group in self._actors.keys():
-            results = self._actors(group).copy()
+            results = self._actors[group].copy()
         return results
 
     def get_all_actors(self):
@@ -50,7 +50,7 @@ class Cast:
             List: All of the actors in the cast.
         """
         results = []
-        if group in self._actors.keys():
+        if group in self._actors:
             results.extend(self._actors[group])
         return results
     
@@ -66,7 +66,7 @@ class Cast:
         result = None
         if group in self._actors.keys():
             result = self._actors[group][0]
-            return result
+        return result
 
     def remove_actor(self, group, actor):
         """Removes an actor from the given group.
