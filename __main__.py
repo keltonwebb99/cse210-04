@@ -2,6 +2,8 @@ import random
 import os
 
 from game.casting.actor import Actor
+from game.casting.actor import Gem
+from game.casting.actor import Rock
 from game.casting.cast import Cast
 
 from game.directing.director import Director
@@ -66,24 +68,32 @@ def main():
         color = Color(r, g, b)
 
     #this needs to be somewhere where it is getting run as the program updates constantly
-    if default_actors < 40:
-        x = random.randint(1, COLS - 1)
-        y = (59)
-        position = Point(x, y)
-        position = position.scale(CELL_SIZE)
+    current_actors = 20 #len(cast.get_all_actors)
+    #while True:
+    x = random.randint(1, COLS - 1)
+    y = (59)
+    position = Point(x, y)
+    position = position.scale(CELL_SIZE)
 
-        r = random.randint(0, 255)
-        g = random.randint(0, 255)
-        b = random.randint(0, 255)
-        color = Color(r, g, b)   
-        
-#I don't think we need this part because we don't have an artifact class
-#but just in case we may need it, I don't want to delete it yet
+    r = random.randint(0, 255)
+    g = random.randint(0, 255)
+    b = random.randint(0, 255)
+    color = Color(r, g, b)   
 
-        #artifact = Artifact()
-        #artifact.set_color(color)
-        #artifact.set_position(position)
-        #cast.add_actor("artifacts", artifact)
+    gem = Gem()
+    #gem.set_color(color)
+    #gem.set_position(position)
+    cast.add_actor("gems", gem)
+    
+    rock = Rock()
+    #rock.set_color(color)
+    #rock.set_position(position)
+    cast.add_actor("rocks", rock)
+
+      #if current_actors < 40:
+            #continue
+        #else: 
+            #break
     
     # start the game
     keyboard_service = KeyboardService(CELL_SIZE)

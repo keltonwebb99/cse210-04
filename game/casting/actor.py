@@ -1,32 +1,16 @@
 from game.shared.point import Point
 from game.shared.color import Color
 
-"""    -actor: (Teigen)
-      A visible, moveable thing that participates in the game. 
-              
-              methods:
-                -get_color:
-                -get_position:
-                -get_velocity:
-                -move_next:
-                -set_color:
-                -set_position:
-                -set_velocity:        
-    
-       --gem: child of actor (Teigen)
-         will call on Actor's methods through inheritance  
-      
-       --rock: child of actor (Teigen)
-         will call on Actor's methods through inheritance"""
-
 class Actor:
+#The parent class that defines the methods that rock and gem classes will use
+
     def __init__(self):
         #Constructs a new Actor
         self._color = Color(255, 255, 255)
         self._position = Point(0, 0)
         self._velocity = Point(0, 10)
-        self._text = ""
         self._font_size = 15
+        self._text = ""
 
     def get_color(self):
         #gets the color in the form of 3 integers
@@ -99,7 +83,8 @@ class Actor:
         self._text = text
 
 class Gem(Actor):
-    
+ #child class that calls through inheritance on the methods defined in actor class   
+
     def __init__(self):
         super().__init__()
         super().get_color
@@ -111,6 +96,7 @@ class Gem(Actor):
         super().set_velocity
 
 class Rock(Actor):
+#child class that calls through inheritance on the methods defined in actor class 
 
     def __init__(self):
         super().__init__()
