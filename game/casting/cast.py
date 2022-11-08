@@ -1,6 +1,3 @@
-from tokenize import group
-from unittest import result
-
 
 class Cast:
     """A collection of actors.
@@ -50,7 +47,7 @@ class Cast:
             List: All of the actors in the cast.
         """
         results = []
-        if group in self._actors:
+        for group in self._actors:
             results.extend(self._actors[group])
         return results
     
