@@ -31,7 +31,7 @@ class Actor:
         #returns speed and direction
 
         # to drop gems
-        self._velocity = Point(0, 10)
+        # self._velocity = Point(0, 10)
 
         return self._velocity
     
@@ -87,11 +87,16 @@ class Gem(Actor):
  #child class that calls through inheritance on the methods defined in actor class   
 
     def __init__(self):
+        #Set velocity for gem
+        self.set_velocity = Point(0, 10)
+        #set what gem will show up as
+        self.set_text = "*"
+        
         super().__init__()
         super().get_color
         super().set_color
         super().get_position
-        super().get_velocity
+        super().get_velocity 
         super().move_next
         super().set_position
         super().set_velocity
@@ -102,6 +107,11 @@ class Rock(Actor):
 #child class that calls through inheritance on the methods defined in actor class 
 
     def __init__(self):
+        #set velocity for rock
+        self.set_velocity = Point(0, 10)
+        #set what rock will show up as
+        self.set_text = "O"
+
         super().__init__()
         super().get_color
         super().set_color
