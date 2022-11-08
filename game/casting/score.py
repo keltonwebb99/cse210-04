@@ -26,5 +26,3 @@ class Score(Actor):
             self._text: The text that shows the text.
         """
         self._text = print(f'Score: {self.get_score()}')
-        
-        return self._text
