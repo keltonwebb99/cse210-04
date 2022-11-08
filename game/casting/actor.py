@@ -8,7 +8,7 @@ class Actor:
         #Constructs a new Actor
         self._color = Color(255, 255, 255)
         self._position = Point(0, 0)
-        self._velocity = Point(0, 10)
+        self._velocity = Point(0, 0)
         self._font_size = 15
         self._text = ""
 
@@ -80,7 +80,8 @@ class Actor:
         Args:
             text (string): The given value.
         """
-        self._text = text
+        self._text = text  
+
 
 class Gem(Actor):
  #child class that calls through inheritance on the methods defined in actor class   
@@ -94,6 +95,8 @@ class Gem(Actor):
         super().move_next
         super().set_position
         super().set_velocity
+        super().set_text
+
 
 class Rock(Actor):
 #child class that calls through inheritance on the methods defined in actor class 
@@ -107,3 +110,6 @@ class Rock(Actor):
         super().move_next
         super().set_position
         super().set_velocity
+        super().set_text
+
+
