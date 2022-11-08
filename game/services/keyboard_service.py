@@ -39,11 +39,11 @@ class KeyboardService:
 
         # move to up
         if pyray.is_key_down(pyray.KEY_UP):
-            dx = -5
+            dy = -5
         
         # move to down
         if pyray.is_key_down(pyray.KEY_DOWN):
-            dx = 5
+            dy = 5
 
         # pyray library: 
         # https://electronstudio.github.io/raylib-python-cffi/pyray.html#pyray.GamepadButton.GAMEPAD_BUTTON_MIDDLE_RIGHT 
