@@ -2,9 +2,10 @@ import random
 import os
 
 from game.casting.actor import Actor
-from game.casting.actor import Gem
-from game.casting.actor import Rock
 from game.casting.cast import Cast
+from game.casting.artifact import Artifact
+from game.casting.gem import Gem 
+from game.casting.rock import Rock 
 
 from game.directing.director import Director
 
@@ -15,7 +16,7 @@ from game.shared.color import Color
 from game.shared.point import Point
 
 
-FRAME_RATE = 12
+FRAME_RATE = 15
 MAX_X = 900
 MAX_Y = 600
 CELL_SIZE = 15
@@ -23,9 +24,9 @@ FONT_SIZE = 15
 COLS = 60
 ROWS = 40
 CAPTION = "Greed"
-DATA_PATH = os.path.dirname(os.path.abspath(__file__))
+#DATA_PATH = os.path.dirname(os.path.abspath(__file__))
 WHITE = Color(255, 255, 255)
-default_actors = 40
+default_artifacts = 40
 
 def main():
     
@@ -34,12 +35,13 @@ def main():
     
     # create the banner for Score
     # This is where Score should be set to banner with text of score
-    banner = Actor()
-    banner.set_text("")
+    banner = Artifact()
     banner.set_font_size(FONT_SIZE)
     banner.set_color(WHITE)
     banner.set_position(Point(CELL_SIZE, 0))
     cast.add_actor("banners", banner)
+    score = (f'Score: {banner.get_score}')
+    banner.set_text(score)
     
     # create the cursor
     x = int(MAX_X / 2)
@@ -55,7 +57,9 @@ def main():
     cast.add_actor("cursor", cursor)
     
     # create the actors
-    for i in range(default_actors):
+    for i in range(default_artifacts):
+
+        gem_or_rock = random.choice([0,1])
 
         x = random.randint(1, COLS - 1)
         y = random.randint(1, ROWS - 1)
@@ -67,34 +71,18 @@ def main():
         b = random.randint(0, 255)
         color = Color(r, g, b)
 
-    #this needs to be somewhere where it is getting run as the program updates constantly
-    current_actors = 20 #len(cast.get_all_actors)
-    #while True:
-    x = random.randint(1, COLS - 1)
-    y = (59)
-    position = Point(x, y)
-    position = position.scale(CELL_SIZE)
+        if gem_or_rock == 0:
+            artifact = Gem()
+        else:
+            artifact = Rock()
 
-    r = random.randint(0, 255)
-    g = random.randint(0, 255)
-    b = random.randint(0, 255)
-    color = Color(r, g, b)   
+        artifact.set_font_size(FONT_SIZE)
+        artifact.set_color(color)
+        artifact.set_position(position)
+        velocity = Point(0, 1)
+        artifact.set_velocity(velocity)
+        cast.add_actor("artifacts", artifact)
 
-    gem = Gem()
-    #gem.set_color(color)
-    #gem.set_position(position)
-    cast.add_actor("gems", gem)
-    
-    rock = Rock()
-    #rock.set_color(color)
-    #rock.set_position(position)
-    cast.add_actor("rocks", rock)
-
-      #if current_actors < 40:
-            #continue
-        #else: 
-            #break
-    
     # start the game
     keyboard_service = KeyboardService(CELL_SIZE)
     video_service = VideoService(CAPTION, MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE)

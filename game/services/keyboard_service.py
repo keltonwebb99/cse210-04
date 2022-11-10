@@ -31,19 +31,19 @@ class KeyboardService:
 
         # move to left
         if pyray.is_key_down(pyray.KEY_LEFT):
-            dx = -5
+            dx = -1
         
         # move to right
         if pyray.is_key_down(pyray.KEY_RIGHT):
-            dx = 5
+            dx = 1
 
         # move to up
         if pyray.is_key_down(pyray.KEY_UP):
-            dy = -5
+            dy = -1
         
         # move to down
         if pyray.is_key_down(pyray.KEY_DOWN):
-            dy = 5
+            dy = 1
 
         # pyray library: 
         # https://electronstudio.github.io/raylib-python-cffi/pyray.html#pyray.GamepadButton.GAMEPAD_BUTTON_MIDDLE_RIGHT 
@@ -51,43 +51,43 @@ class KeyboardService:
         # setting x and y to 1/-1 will move very slowly
         # move to left
         if pyray.is_key_down(pyray.GAMEPAD_BUTTON_LEFT_FACE_LEFT):
-            dx = -5
+            dx = -1
         
         # move to right
         if pyray.is_key_down(pyray.GAMEPAD_BUTTON_RIGHT_FACE_RIGHT):
-            dx = 5
+            dx = 1
 
         # move to left
         if pyray.is_key_down(pyray.KEY_KP_4):
-            dx = -5
+            dx = -1
         
         # move to right
         if pyray.is_key_down(pyray.KEY_KP_6):
-            dx = 5
+            dx = 1
 
         # move to left
         if pyray.is_key_down(pyray.MOUSE_BUTTON_LEFT):
-            dx = -5
+            dx = -1
         
         # move to right
         if pyray.is_key_down(pyray.MOUSE_BUTTON_RIGHT):
-            dx = 5
+            dx = 1
 
         # move up
         if pyray.is_key_down(pyray.KEY_KP_8):
-            dy = -5
+            dy = -1
 
         # move down
         if pyray.is_key_down(pyray.KEY_KP_2):
-            dy = 5
+            dy = 1
 
         # move up
         if pyray.is_key_down(pyray.KEY_UP):
-            dy = -5
+            dy = -1
 
         # move down
         if pyray.is_key_down(pyray.KEY_DOWN):
-            dy = 5
+            dy = 1
         
 
         direction = Point(dx, dy)
