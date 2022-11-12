@@ -25,8 +25,8 @@ class Director:
     def _do_updates(self, cast):
         #update player position and update points when colliding with rocks or gems
         player = cast.get_first_actor("cursor")
-        gem = cast.get_actor("gems")
-        rock = cast.get_actor("rocks")
+        gems = cast.get_actor("gems")
+        rocks = cast.get_actor("rocks")
 
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
@@ -34,18 +34,23 @@ class Director:
         # Update position of robot; in actor
         player.move_next(max_x, max_y)
 
-        for gem in gem:
+        score = 0
+        for gem in gems:
             if player.get_position().equals(gem.get_position()):
                 #add code that adds a point
                 score += 1
+            else:
+                gem.move_next(max_x, max_y)
             #elif player.get_position().equals(rock.get_position()):
                 #add code that subtracts a point
                 #score -= 1
-            
-        for rock in rock:
+
+        for rock in rocks:
             if player.get_position().equals(rock.get_position()):
                 #add code that subtracts a point
                 score -= 1
+            else:
+                rock.move_next(max_x, max_y)
 
 
     def _do_outputs(self, cast):

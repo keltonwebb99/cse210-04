@@ -28,34 +28,35 @@ WHITE = Color(255, 255, 255)
 default_actors = 40
 
 def main():
-    
+
     # create the cast
     cast = Cast()
-    
+
     # create the banner for Score
     # This is where Score should be set to banner with text of score
-    banner = Actor()
-    banner.set_text("")
+    banner = Actor("GREED")
     banner.set_font_size(FONT_SIZE)
     banner.set_color(WHITE)
     banner.set_position(Point(CELL_SIZE, 0))
     cast.add_actor("banners", banner)
-    
+
     # create the cursor
     x = int(MAX_X / 2)
     y = int(MAX_Y / 2)
     position = Point(x, y)
 
-    cursor = Actor()
+    cursor = Actor("#")
     # Need to have an icon for player/cursor
     cursor.set_text("#")
     cursor.set_font_size(FONT_SIZE)
     cursor.set_color(WHITE)
     cursor.set_position(position)
     cast.add_actor("cursor", cursor)
-    
+
     # create the actors
     for i in range(default_actors):
+        actor_name = None
+        actor = None
 
         x = random.randint(1, COLS - 1)
         y = random.randint(1, ROWS - 1)
@@ -66,6 +67,16 @@ def main():
         g = random.randint(0, 255)
         b = random.randint(0, 255)
         color = Color(r, g, b)
+        if random.randint(0, 1) > 0: #Played around with values here for the gems and rocks to appear on screen
+            actor_name = "gems"
+            actor = Gem()
+        else:
+            actor_name = "rocks"
+            actor = Rock()
+        actor.set_color(color)
+        actor.set_position(position)
+        actor.set_velocity(Point(random.randint(0, 10), random.randint(0, 10)))
+        cast.add_actor(actor_name, actor)
 
     #this needs to be somewhere where it is getting run as the program updates constantly
     current_actors = 20 #len(cast.get_all_actors)
@@ -78,13 +89,13 @@ def main():
     r = random.randint(0, 255)
     g = random.randint(0, 255)
     b = random.randint(0, 255)
-    color = Color(r, g, b)   
+    color = Color(r, g, b)
 
     gem = Gem()
     #gem.set_color(color)
     #gem.set_position(position)
     cast.add_actor("gems", gem)
-    
+
     rock = Rock()
     #rock.set_color(color)
     #rock.set_position(position)
@@ -92,9 +103,9 @@ def main():
 
       #if current_actors < 40:
             #continue
-        #else: 
+        #else:
             #break
-    
+
     # start the game
     keyboard_service = KeyboardService(CELL_SIZE)
     video_service = VideoService(CAPTION, MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE)

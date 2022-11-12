@@ -5,7 +5,7 @@ from unittest import result
 class Cast:
     """A collection of actors.
 
-    The responsibility of a cast is to keep track of a collection of actors. It has methods for 
+    The responsibility of a cast is to keep track of a collection of actors. It has methods for
     adding, removing and getting them by a group name.
 
     Attributes:
@@ -18,7 +18,7 @@ class Cast:
 
     def add_actor(self, group, actor):
         """Adds an actor to the given group.
-        
+
         Args:
             group (string): The name of the group.
             actor (Actor): The actor to add.
@@ -31,7 +31,7 @@ class Cast:
 
     def get_actor(self, group):
         """Gets the actors in the given group.
-        
+
         Args:
             group (string): The name of the group.
 
@@ -45,21 +45,21 @@ class Cast:
 
     def get_all_actors(self):
         """Gets all of the actors in the cast.
-        
+
         Returns:
             List: All of the actors in the cast.
         """
         results = []
-        if group in self._actors:
+        for group in self._actors:
             results.extend(self._actors[group])
         return results
-    
+
     def get_first_actor(self, group):
         """Gets the first actor in the given group.
-        
+
         Args:
             group (string): The name of the group.
-            
+
         Returns:
             List: The first actor in the group.
         """
@@ -70,7 +70,7 @@ class Cast:
 
     def remove_actor(self, group, actor):
         """Removes an actor from the given group.
-        
+
         Args:
             group (string): The name of the group.
             actor (Actor): The actor to remove.
