@@ -8,7 +8,7 @@ class Actor:
         #Constructs a new Actor
         self._color = Color(255, 255, 255)
         self._position = Point(0, 0)
-        self._velocity = Point(0, 10)
+        self._velocity = Point(0, 0)
         self._font_size = 15
         self._text = text
 
@@ -29,10 +29,6 @@ class Actor:
     def get_velocity(self):
         #gets the speed and direction
         #returns speed and direction
-
-        # to drop gems
-        self._velocity = Point(0, 10)
-
         return self._velocity
 
     def move_next(self, max_x, max_y):
@@ -80,8 +76,9 @@ class Actor:
         Args:
             text (string): The given value.
         """
-        self._text = text
+        self._text = text  
 
+<<<<<<< HEAD
 class Gem(Actor):
  #child class that calls through inheritance on the methods defined in actor class
 
@@ -93,3 +90,7 @@ class Rock(Actor):
 
     def __init__(self):
         super().__init__("R")
+=======
+
+    
+>>>>>>> e5f2f7211a764e6037b14659315f6eb5c8158885

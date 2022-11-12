@@ -6,6 +6,7 @@ class Director:
     def __init__(self, keyboard_service, video_service):
         self._keyboard_service = keyboard_service
         self._video_service = video_service
+        self._score = 0
 
     def start_game(self, cast):
         self._video_service.open_window()
@@ -24,16 +25,23 @@ class Director:
 
     def _do_updates(self, cast):
         #update player position and update points when colliding with rocks or gems
+        banner = cast.get_first_actor("banners")
         player = cast.get_first_actor("cursor")
+<<<<<<< HEAD
         gems = cast.get_actor("gems")
         rocks = cast.get_actor("rocks")
+=======
+        artifacts = cast.get_actor("artifacts")
+>>>>>>> e5f2f7211a764e6037b14659315f6eb5c8158885
 
+        banner.set_text(f"Score {self._score}")
         max_x = self._video_service.get_width()
         max_y = self._video_service.get_height()
 
         # Update position of robot; in actor
         player.move_next(max_x, max_y)
 
+<<<<<<< HEAD
         score = 0
         for gem in gems:
             if player.get_position().equals(gem.get_position()):
@@ -53,6 +61,18 @@ class Director:
                 rock.move_next(max_x, max_y)
 
 
+=======
+        for artifact in artifacts:
+            artifact.move_next(max_x, max_y)
+            if player.get_position().equals(artifact.get_position()):
+                if artifact.get_text() == "*":
+                    self._score +=1
+                else:
+                    self._score -= 1
+                banner.set_text(f"Score: {self._score}") 
+                
+                
+>>>>>>> e5f2f7211a764e6037b14659315f6eb5c8158885
     def _do_outputs(self, cast):
         #draws actors on screen
         self._video_service.clear_buffer()
