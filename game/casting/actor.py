@@ -78,7 +78,6 @@ class Actor:
         """
         self._text = text  
 
-<<<<<<< HEAD
 class Gem(Actor):
  #child class that calls through inheritance on the methods defined in actor class
 
@@ -90,7 +89,5 @@ class Rock(Actor):
 
     def __init__(self):
         super().__init__("R")
-=======
 
     
->>>>>>> e5f2f7211a764e6037b14659315f6eb5c8158885
