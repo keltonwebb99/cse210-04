@@ -15,7 +15,6 @@ from game.services.video_service import VideoService
 from game.shared.color import Color
 from game.shared.point import Point
 
-print ("TEST1")
 
 FRAME_RATE = 30
 MAX_X = 900
