@@ -60,6 +60,7 @@ def main():
 
     # create the actors
     for i in range(default_artifacts):
+
         x = random.randint(1, COLS - 1)
         y = random.randint(1, ROWS - 1)
         position = Point(x, y)

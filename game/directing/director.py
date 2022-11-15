@@ -41,6 +41,7 @@ class Director:
         banner = cast.get_first_actor("banners")
         player = cast.get_first_actor("cursor")
         artifacts = cast.get_actor("artifacts")
+>>>>>>> e5f2f7211a764e6037b14659315f6eb5c8158885
 
         banner.set_text(f"Score {self._score}")
         max_x = self._video_service.get_width()
