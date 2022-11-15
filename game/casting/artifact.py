@@ -1,4 +1,5 @@
 from game.casting.actor import Actor
+from game.shared.point import Point
 
 
 class Artifact(Actor):
@@ -11,9 +12,10 @@ class Artifact(Actor):
         _message (string): A short description about the artifact.
     """
     def __init__(self):
-        super().__init__()
+        super().__init__("#")
         self._message = ""
         self._score = 0
+        self.artifact_velocity = 3
         
     def get_message(self):
         """Gets the artifact's message.
@@ -45,3 +47,9 @@ class Artifact(Actor):
 
         """
         return self._score
+
+    def artifact_fall(self):
+       #moves the actor to the next position
+       x = (self._position.get_x())
+       y = (self._position.get_y() + self.artifact_velocity)
+       self._position = Point(x, y)

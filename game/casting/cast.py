@@ -12,6 +12,7 @@ class Cast:
     def __init__(self):
         """Constructs a new Actor."""
         self._actors = {}
+        print("TEST4")
 
     def add_actor(self, group, actor):
         """Adds an actor to the given group.
@@ -74,3 +75,9 @@ class Cast:
         """
         if group in self._actors:
             self._actors[group].remove(actor)
+
+    def fill_artifact_cast(self):
+        self.add_actor("artifacts", self.get_actor("rocks"))
+        self.add_actor("artifacts", self.get_actor("gems"))
+
+

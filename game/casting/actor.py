@@ -1,3 +1,4 @@
+
 from game.shared.point import Point
 from game.shared.color import Color
 
@@ -8,7 +9,7 @@ class Actor:
         #Constructs a new Actor
         self._color = Color(255, 255, 255)
         self._position = Point(0, 0)
-        self._velocity = Point(0, 0)
+        self._velocity = Point(20, 20)
         self._font_size = 15
         self._text = text
 
@@ -26,6 +27,15 @@ class Actor:
         #returns the position
         return self._position
 
+    def get_position_y(self):
+        #gets the starting position in x/y format
+        #returns the position
+        return self._position.get_y()
+    def get_position_x(self):
+        #gets the starting position in x/y format
+        #returns the position
+        return self._position.get_x()
+
     def get_velocity(self):
         #gets the speed and direction
         #returns speed and direction
@@ -36,6 +46,9 @@ class Actor:
         x = (self._position.get_x() + self._velocity.get_x()) % max_x
         y = (self._position.get_y() + self._velocity.get_y()) % max_y
         self._position = Point(x, y)
+        return self._position
+
+
 
     def set_position(self, position):
         #updates the postion to the current one
@@ -78,19 +91,5 @@ class Actor:
         """
         self._text = text  
 
-<<<<<<< HEAD
-class Gem(Actor):
- #child class that calls through inheritance on the methods defined in actor class
-
-    def __init__(self):
-        super().__init__("G")
-
-class Rock(Actor):
-#child class that calls through inheritance on the methods defined in actor class
-
-    def __init__(self):
-        super().__init__("R")
-=======
 
     
->>>>>>> e5f2f7211a764e6037b14659315f6eb5c8158885

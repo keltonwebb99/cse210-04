@@ -39,11 +39,11 @@ class KeyboardService:
 
         # move to up
         if pyray.is_key_down(pyray.KEY_UP):
-            dy = -1
+            dy = 0
         
         # move to down
         if pyray.is_key_down(pyray.KEY_DOWN):
-            dy = 1
+            dy = 0
 
         # pyray library: 
         # https://electronstudio.github.io/raylib-python-cffi/pyray.html#pyray.GamepadButton.GAMEPAD_BUTTON_MIDDLE_RIGHT 
@@ -83,11 +83,11 @@ class KeyboardService:
 
         # move up
         if pyray.is_key_down(pyray.KEY_UP):
-            dy = -1
+            dy = 0
 
         # move down
         if pyray.is_key_down(pyray.KEY_DOWN):
-            dy = 1
+            dy = 0
         
 
         direction = Point(dx, dy)

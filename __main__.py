@@ -1,5 +1,5 @@
-import random
 import os
+import random
 
 from game.casting.actor import Actor
 from game.casting.cast import Cast
@@ -15,8 +15,9 @@ from game.services.video_service import VideoService
 from game.shared.color import Color
 from game.shared.point import Point
 
+print ("TEST1")
 
-FRAME_RATE = 15
+FRAME_RATE = 30
 MAX_X = 900
 MAX_Y = 600
 CELL_SIZE = 15
@@ -24,18 +25,21 @@ FONT_SIZE = 15
 COLS = 60
 ROWS = 40
 CAPTION = "Greed"
-#DATA_PATH = os.path.dirname(os.path.abspath(__file__))
+DATA_PATH = os.path.dirname(os.path.abspath(__file__))
 WHITE = Color(255, 255, 255)
 default_artifacts = 40
 
-def main():
+print("Test2")
 
+def main():
+    print("Test 3")
     # create the cast
     cast = Cast()
+    director = Director()
 
     # create the banner for Score
     # This is where Score should be set to banner with text of score
-    banner = Artifact()
+    banner = Actor("")
     banner.set_font_size(FONT_SIZE)
     banner.set_color(WHITE)
     banner.set_position(Point(CELL_SIZE, 0))
@@ -43,7 +47,7 @@ def main():
     
     # create the cursor
     x = int(MAX_X / 2)
-    y = int(MAX_Y / 2)
+    y = 575
     position = Point(x, y)
 
     cursor = Actor("#")
@@ -55,8 +59,7 @@ def main():
     cast.add_actor("cursor", cursor)
 
     # create the actors
-    for i in range(default_actors):
-
+    for i in range(default_artifacts):
         x = random.randint(1, COLS - 1)
         y = random.randint(1, ROWS - 1)
         position = Point(x, y)
@@ -67,19 +70,17 @@ def main():
         b = random.randint(0, 255)
         color = Color(r, g, b)
         if random.randint(0, 1) > 0: #Played around with values here for the gems and rocks to appear on screen
-            actor_name = "gems"
             actor = Gem()
         else:
-            actor_name = "rocks"
             actor = Rock()
+        actor_name = "artifacts"
         actor.set_color(color)
+
         actor.set_position(position)
         actor.set_velocity(Point(random.randint(0, 10), random.randint(0, 10)))
         cast.add_actor(actor_name, actor)
 
-    #this needs to be somewhere where it is getting run as the program updates constantly
-    current_actors = 20 #len(cast.get_all_actors)
-    #while True:
+
     x = random.randint(1, COLS - 1)
     y = (59)
     position = Point(x, y)
@@ -106,10 +107,11 @@ def main():
             #break
     
     # start the game
-    keyboard_service = KeyboardService(CELL_SIZE)
-    video_service = VideoService(CAPTION, MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE)
-    director = Director(keyboard_service, video_service)
+   # keyboard_service = KeyboardService(CELL_SIZE)
+  #  video_service = VideoService(CAPTION, MAX_X, MAX_Y, CELL_SIZE, FRAME_RATE)
+    
     director.start_game(cast)
+
 
 
 if __name__ == "__main__":
